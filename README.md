@@ -32,8 +32,8 @@ php artisan vendor:publish --provider="Siaoynli\AliCloud\Sms\LaravelAliCloudSmsS
 
 ```php
 $message=[
-  "code"=>"1234",
-  "product"=>"xx网",
+  "code"=>"1234",  //code 对应模板里面的code 变量
+  "product"=>"xx网", //product 对应模板里面的product 变量
 ];
  
           $result=Sms::to("18906715000")->signName("注册验证")->template("SMS_29010034")->send($message);

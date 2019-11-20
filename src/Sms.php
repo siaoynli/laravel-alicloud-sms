@@ -6,6 +6,7 @@ use AlibabaCloud\Client\AlibabaCloud;
 use AlibabaCloud\Client\Exception\ClientException;
 use AlibabaCloud\Client\Exception\ServerException;
 use Illuminate\Config\Repository;
+use mysql_xdevapi\Exception;
 
 
 class Sms
@@ -78,8 +79,8 @@ class Sms
      */
     public function send($template_param = null)
     {
-        if ($template_param == null) {
-            throw  new ServerException("ServerException : 请传入TemplateParam 参数");
+        if (!$template_param) {
+            throw  new \Exception("请传入正确的TemplateParam参数");
         }
 
         $this->sign_name = $this->sign_name ?: $this->config["sign_name"];
