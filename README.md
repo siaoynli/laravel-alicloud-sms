@@ -31,6 +31,9 @@ php artisan vendor:publish --provider="Siaoynli\AliCloud\Sms\LaravelAliCloudSmsS
 ## 使用方法
 
 ```php
+
+use Siaoynli\AliCloud\Sms\Facades\Sms;
+
 $message=[
   "code"=>"1234",  //code 对应模板里面的code 变量
   "product"=>"xx网", //product 对应模板里面的product 变量
