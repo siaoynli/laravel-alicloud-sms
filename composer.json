@@ -1,0 +1,38 @@
+{
+    "name": "siaoynli/laravel-alicloud-sms",
+    "type": "library",
+    "description": "aliyun-php-sdk,sms,laravel",
+    "keywords": [
+      "aliyun",
+      "AliCloud",
+      "sdk",
+      "sms"
+    ],
+    "homepage": "https://github.com/siaoynli/laravel-alicloud-sms",
+    "license": "MIT",
+    "authors": [
+      {
+        "name": "siaoynli",
+        "email": "siaoynli@126.com",
+        "homepage": "https://github.com/siaoynli"
+      }
+    ],
+    "require": {
+      "php": ">=5.5",
+      "alibabacloud/client": "^1.5"
+    },
+    "require-dev": {
+      "phpunit/phpunit": ">=4.8 < 6.0"
+    },
+    "autoload": {
+      "psr-4": {
+        "Siaoynli\\AliCloud\\Sms\\": "src/"
+      }
+    },
+    "autoload-dev": {
+      "psr-4": {
+        "AlibabaCloud\\Client\\": "tests/"
+      }
+    },
+	"minimum-stability": "dev"
+}
