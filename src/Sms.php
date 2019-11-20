@@ -6,7 +6,7 @@ use AlibabaCloud\Client\AlibabaCloud;
 use AlibabaCloud\Client\Exception\ClientException;
 use AlibabaCloud\Client\Exception\ServerException;
 use Illuminate\Config\Repository;
-use mysql_xdevapi\Exception;
+
 
 
 class Sms
