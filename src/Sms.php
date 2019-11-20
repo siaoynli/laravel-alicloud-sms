@@ -14,25 +14,9 @@ class Sms
 
     protected $config;
     protected $client;
-    protected $request;
     protected $phone;
     protected $template;
     protected $sign_name;
-
-    protected $error_code=[
-        "SMS_TEMPLATE_ILLEGAL"=>"模板不合法(不存在或被拉黑)",
-        "SMS_SIGNATURE_ILLEGAL"=>"签名不合法(不存在或被拉黑)",
-        "MOBILE_NUMBER_ILLEGAL"=>"无效号码",
-        "TEMPLATE_MISSING_PARAMETERS"=>"模板变量缺少对应参数值",
-        "EXTEND_CODE_ERROR"=>"扩展码使用错误",
-        "DOMESTIC_NUMBER_NOT_SUPPORTED"=>"港澳台消息模板不支持发送境内号码",
-        "DAY_LIMIT_CONTROL"=>"触发日发送限额",
-        "SMS_CONTENT_ILLEGAL"=>"短信内容包含禁止发送内容",
-        "SMS_SIGN_ILLEGAL"=>"签名禁止使用",
-        "PRODUCT_UNSUBSCRIBE"=>"产品未开通",
-        "ACCOUNT_NOT_EXISTS"=>"账户不存在",
-        "BUSINESS_LIMIT_CONTROL"=>"业务限流",
-    ];
 
 
     public function __construct(Repository $config)
