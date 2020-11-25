@@ -99,9 +99,9 @@ class Sms
                 return ["state" => 0, "info" => $result];
             }
         } catch (ClientException $e) {
-            throw  new ClientException("ClientException :" . $e->getErrorMessage());
+            throw  new ClientException("ClientException :" . $e->getMessage());
         } catch (ServerException $e) {
-            throw  new ServerException("ServerException :" . $e->getErrorMessage());
+            throw  new \Exception("ServerException :" . $e->getErrorMessage());
         }
     }
 
