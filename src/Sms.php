@@ -13,7 +13,6 @@ class Sms
 {
 
     protected $config;
-    protected $client;
     protected $phone;
     protected $template;
     protected $sign_name;
@@ -23,7 +22,7 @@ class Sms
     {
         $this->config = $config->get("alicloud-sms");
         try {
-            $this->client = AlibabaCloud::accessKeyClient($this->config["key"], $this->config["secret"])
+             AlibabaCloud::accessKeyClient($this->config["key"], $this->config["secret"])
                 ->regionId($this->config["region"])
                 ->asDefaultClient();
         } catch (ClientException $e) {
