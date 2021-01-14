@@ -4,12 +4,14 @@ namespace  Siaoynli\AliCloud\Sms;
 
 use Illuminate\Notifications\Notification;
 
+
 /**
  * Class AliSmsChannel
- * @package Siaoynli\NotificationChannels\AliSms
+ * @package Siaoynli\AliCloud\Sms
  */
 class AliSmsChannel
 {
+
 
     /**
      * AliSmsChannel constructor.
@@ -19,6 +21,12 @@ class AliSmsChannel
     }
 
 
+    /**
+     * @param $notifiable
+     * @param Notification $notification
+     * @return mixed
+     * @throws Exceptions\CouldNotSendNotification
+     */
     public function send($notifiable, Notification $notification)
     {
 
