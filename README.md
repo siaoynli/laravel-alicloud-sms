@@ -64,3 +64,41 @@ array:2 [▼
 
 ```
 
+# 使用通知
+
+``` php
+//App\Notifications\TestNotification
+use Siaoynli\NotificationChannels\AliSms\AliSmsChannel;
+use Siaoynli\NotificationChannels\AliSms\AliSmsMessage;
+use Illuminate\Notifications\Notification;
+
+class TestNotification extends Notification implements ShouldQueue
+{
+    public function via($notifiable)
+    {
+        return [AliSmsChannel::class];
+    }
+
+     public function toAlisms($notifiable)
+    {
+        return (new AliSmsMessage)
+            ->signName("登录验证")
+            ->template('SMS_204975154')
+            ->body([
+                "product" => "杭州网媒资管理系统"  //需要去阿里云修改实际模板
+            ]);
+    }
+    
+    public function failed(\Exception $exception)
+    {
+       
+    }
+}
+
+
+//发送通知
+ $user = User::find(1);
+ $user->notify((new \App\Notifications\TestNotification())->delay(10));
+//群发
+Notification::send($users, new \App\Notifications\TestNotification());
+```
