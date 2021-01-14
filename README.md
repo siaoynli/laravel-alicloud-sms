@@ -2,25 +2,27 @@
 
 #### 项目介绍
 
-阿里云SDK发送短信包,一个号码1小时限制5条 一天限制10条
+阿里云 SDK 发送短信包,一个号码 1 小时限制 5 条 一天限制 10 条
 
 ## install
 
-this package  for laravel
+this package for laravel
 
 ```
 composer require siaoynli/laravel-alicloud-sms
 ```
-add the   
+
+add the
+
 ```
-Siaoynli\AliCloud\Sms\LaravelAliCloudSmsServerProvider::class   
+Siaoynli\AliCloud\Sms\LaravelAliCloudSmsServerProvider::class
 ```
+
 to the providers array in config/app.php
 
 ```
 php artisan vendor:publish --provider="Siaoynli\AliCloud\Sms\LaravelAliCloudSmsServerProvider"
 ```
-
 
 ## alias
 
@@ -38,11 +40,12 @@ $message=[
   "code"=>"1234",  //code 对应模板里面的code 变量
   "product"=>"xx网", //product 对应模板里面的product 变量
 ];
- 
+
           $result=Sms::to("18906715000")->signName("注册验证")->template("SMS_29010034")->send($message);
 ```
 
 返回结果
+
 ```php
   "state" => 1
   "info" => array:4 [▼
@@ -66,7 +69,7 @@ array:2 [▼
 
 # 使用通知
 
-``` php
+```php
 //App\Notifications\TestNotification
 use Siaoynli\NotificationChannels\AliSms\AliSmsChannel;
 use Siaoynli\NotificationChannels\AliSms\AliSmsMessage;
@@ -88,10 +91,21 @@ class TestNotification extends Notification implements ShouldQueue
                 "product" => "xxxx"  //需要去阿里云修改实际模板
             ]);
     }
-    
+
+    /**
+     * @param $response
+     * @param $notifiable
+     */
+    public function toPayload($response, $notifiable)
+    {
+        logger($response);
+        logger($notifiable->toArray());
+    }
+
+
     public function failed(\Exception $exception)
     {
-       
+
     }
 }
 
@@ -100,5 +114,6 @@ class TestNotification extends Notification implements ShouldQueue
  $user = User::find(1);
  $user->notify((new \App\Notifications\TestNotification())->delay(10));
 //群发
+$users = User::all();
 Notification::send($users, new \App\Notifications\TestNotification());
 ```
