@@ -1,11 +1,10 @@
 <?php
 
-namespace  Siaoynli\AliCloud\Sms;
-
+namespace Siaoynli\AliCloud\Sms;
 
 /**
  * Class AliSmsMessage
- * @package Siaoynli\AliCloud\Sms
+ * @package Siaoynli\NotificationChannels\AliSms
  */
 class AliSmsMessage
 {
@@ -28,7 +27,7 @@ class AliSmsMessage
      * @param array $message
      * 短信内容变量信息
      */
-    public function __construct(array $message = [])
+    public function __construct(array $message = ['produce' => ""])
     {
         $this->body($message);
     }
