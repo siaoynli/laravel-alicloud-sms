@@ -83,9 +83,9 @@ class TestNotification extends Notification implements ShouldQueue
     {
         return (new AliSmsMessage)
             ->signName("登录验证")
-            ->template('SMS_204975154')
+            ->template('SMS_204975xxx')
             ->body([
-                "product" => "杭州网媒资管理系统"  //需要去阿里云修改实际模板
+                "product" => "xxxx"  //需要去阿里云修改实际模板
             ]);
     }
     
