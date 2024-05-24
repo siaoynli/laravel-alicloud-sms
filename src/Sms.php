@@ -26,7 +26,7 @@ class Sms
                 ->regionId($this->config["region"])
                 ->asDefaultClient();
         } catch (ClientException $e) {
-            throw  new ClientException("ClientException :" . $e->getMessage());
+            throw  new ClientException("ClientException :" . $e->getMessage()，0);
         }
     }
 
